@@ -39,4 +39,31 @@ const siteContent = {
 
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+logo.setAttribute('src', siteContent["nav"]["img-src"]);
+
+//            NAVIGATION
+const nav = document.querySelector('nav');
+const navItems = document.querySelectorAll('a');
+const navItemsArray = Array.from(navItems);
+//console.log(navItems);
+const jasonNav = siteContent.nav;
+// console.log(jasonNav);
+navValues = Object.entries(jasonNav);
+navItemsArray.forEach((element, index, array) => {
+  element.textContent = navValues[index][1]; 
+  element.className = navValues[index][0];
+  console.log(array);
+  // console.log({'nav': 'item'}.nav);
+  //  json nav [index] is not an array
+  // console.log(jasonNav['nav-item-1']);
+  // navItems.className = jasonNav[index].key;
+});
+// console.log(navItems);
+// console.log(navItemsArray);
+// navItems.append(navValues[i]);
+// console.log(navItemsArray);
+//          NAV STYLES
+// navItems.style.padding = "10px";
+
+//              CTA
+const cta = siteContent.cta;
