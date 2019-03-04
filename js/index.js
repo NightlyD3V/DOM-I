@@ -49,12 +49,13 @@ const navItemsArray = Array.from(navItems);
 const jasonNav = siteContent.nav;
 // console.log(jasonNav);
 navValues = Object.entries(jasonNav);
+//              LOOP
 navItemsArray.forEach((element, index, array) => {
+  //  json nav [index] is not an array
   element.textContent = navValues[index][1]; 
   element.className = navValues[index][0];
   console.log(array);
   // console.log({'nav': 'item'}.nav);
-  //  json nav [index] is not an array
   // console.log(jasonNav['nav-item-1']);
   // navItems.className = jasonNav[index].key;
 });
@@ -62,8 +63,17 @@ navItemsArray.forEach((element, index, array) => {
 // console.log(navItemsArray);
 // navItems.append(navValues[i]);
 // console.log(navItemsArray);
-//          NAV STYLES
-// navItems.style.padding = "10px";
 
-//              CTA
+//            CTA 
 const cta = siteContent.cta;
+const ctaArray = Array.from(cta);
+ctaValues = Object.entries(cta);
+console.log(cta);
+//          POINTERS
+const h1 = document.querySelector('h1');
+const button = document.querySelector('button');
+const img = document.getElementById('cta-img');
+//        MANIPULATION
+h1.textContent = ctaValues[0][1];
+button.textContent = ctaValues[1][1];
+img.src = 'img/header-img.png';
