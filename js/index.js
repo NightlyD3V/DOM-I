@@ -13,7 +13,7 @@ const siteContent = {
     "button": "Get Started",
     "img-src": "img/header-img.png"
   },
-  "main-content": {
+  "mainContent": {
     "features-h4":"Features",
     "features-content": "Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
     "about-h4":"About",
@@ -48,7 +48,7 @@ const navItemsArray = Array.from(navItems);
 //console.log(navItems);
 const jasonNav = siteContent.nav;
 // console.log(jasonNav);
-navValues = Object.entries(jasonNav);
+const navValues = Object.entries(jasonNav);
 //              LOOP
 navItemsArray.forEach((element, index, array) => {
   //  json nav [index] is not an array
@@ -77,3 +77,24 @@ const img = document.getElementById('cta-img');
 h1.textContent = ctaValues[0][1];
 button.textContent = ctaValues[1][1];
 img.src = 'img/header-img.png';
+
+//        MAIN CONTENT 
+const mainContent = siteContent.mainContent; //had to change json name is there a way to do it without doing that?
+const mainContentArray = Array.from(mainContent);
+const mainContentValues = Object.entries(mainContent);
+//          POINTERS
+const allH4 = document.querySelectorAll('h4');
+//            LOOP
+const h4Array = [];
+const filter = mainContentArray.filter((element, index) => {
+      if(element.includes('-h4')) {
+        h4Array.push(element[index]);
+        console.log('contains h4');
+      }
+});
+console.log(h4Array);
+console.log(mainContent);
+console.log(mainContentArray);
+// allH4.forEach((element,index) => {
+//   element.textContent = mainContentValues[index][1];
+// });
