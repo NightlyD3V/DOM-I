@@ -45,6 +45,13 @@ logo.setAttribute('src', siteContent["nav"]["img-src"]);
 const nav = document.querySelector('nav');
 const navItems = document.querySelectorAll('a');
 const navItemsArray = Array.from(navItems);
+console.log(navItems);
+const newLink = document.createElement('a');
+newLink.textContent = 'Web18';
+const newLink2 = document.createElement('a');
+newLink2.textContent = 'This was hard!';
+nav.appendChild(newLink);
+nav.prepend(newLink2);
 //console.log(navItems);
 const jasonNav = siteContent.nav;
 // console.log(jasonNav);
@@ -54,11 +61,14 @@ navItemsArray.forEach((element, index, array) => {
   //  json nav [index] is not an array
   element.textContent = navValues[index][1]; 
   element.className = navValues[index][0];
-  console.log(array);
+  element.style.color = 'green';
+  // console.log(array);
   // console.log({'nav': 'item'}.nav);
   // console.log(jasonNav['nav-item-1']);
   // navItems.className = jasonNav[index].key;
 });
+
+
 // console.log(navItems);
 // console.log(navItemsArray);
 // navItems.append(navValues[i]);
@@ -111,3 +121,8 @@ const contactValues = Object.values(siteContent.contact);
 contact.forEach((element, index) => {
   element.textContent = contactValues[index];
 });
+
+//         FOOTER
+const footer = document.querySelector('footer p');
+const footerValue = Object.values(siteContent.footer);
+footer.textContent = footerValue;
