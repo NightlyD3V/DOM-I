@@ -13,7 +13,7 @@ const siteContent = {
     "button": "Get Started",
     "img-src": "img/header-img.png"
   },
-  "mainContent": {
+  "main-content": {
     "features-h4":"Features",
     "features-content": "Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
     "about-h4":"About",
@@ -79,22 +79,35 @@ button.textContent = ctaValues[1][1];
 img.src = 'img/header-img.png';
 
 //        MAIN CONTENT 
-const mainContent = siteContent.mainContent; //had to change json name is there a way to do it without doing that?
-const mainContentArray = Array.from(mainContent);
-const mainContentValues = Object.entries(mainContent);
+const mainContent = siteContent['main-content']; //had to change json name is there a way to do it without doing that?
+const mainContentArray = Object.entries(mainContent);
 //          POINTERS
-const allH4 = document.querySelectorAll('h4');
+// const allH4 = document.querySelectorAll('h4');
+// const textContent = document.getElementsByClassName('text-content');
+let textContentElems = document.querySelectorAll('.main-content .text-content h4, .main-content .text-content p')
+const mainContentKeys = Object.keys(siteContent['main-content']);
+mainContentKeys.splice(4,1);
+textContentElems = Array.from(textContentElems);
 //            LOOP
-const h4Array = [];
-const filter = mainContentArray.filter((element, index) => {
-      if(element.includes('-h4')) {
-        h4Array.push(element[index]);
-        console.log('contains h4');
-      }
+textContentElems.forEach((elements, index) => {
+  elements.textContent = siteContent['main-content'][mainContentKeys[index]];
 });
-console.log(h4Array);
-console.log(mainContent);
-console.log(mainContentArray);
+//           IMAGE 
+const middleImage = document.getElementById('middle-img');
+middleImage.src = "img/mid-page-accent.jpg";
+// console.log(textContentElems);
+// console.log(mainContentArray);
 // allH4.forEach((element,index) => {
 //   element.textContent = mainContentValues[index][1];
 // });
+
+//          CONTACT
+let contact = document.querySelectorAll('.contact h4, .contact p');
+// console.log(contact);
+contact = Array.from(contact);
+// console.log(contact);
+const contactKeys = Object.keys(siteContent.contact);
+const contactValues = Object.values(siteContent.contact);
+contact.forEach((element, index) => {
+  element.textContent = contactValues[index];
+});
