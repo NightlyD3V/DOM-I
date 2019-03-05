@@ -83,10 +83,26 @@ console.log(cta);
 const h1 = document.querySelector('h1');
 const button = document.querySelector('button');
 const img = document.getElementById('cta-img');
+const text = document.querySelector('.cta-text');
+const newText = document.createElement('h1');
+newText.textContent = 'and so are you!';
 //        MANIPULATION
 h1.textContent = ctaValues[0][1];
 button.textContent = ctaValues[1][1];
 img.src = 'img/header-img.png';
+//       EVENT LISTENERS
+button.addEventListener('click', (event) => {
+  event.target.style.backgroundColor = 'lightgreen';
+  event.target.textContent = 'You Clicked Me <3';
+  callback();
+  setTimeout(function(){ event.target.textContent = 'Thanks!'; }, 2500);
+  setTimeout(function(){ event.target.style.backgroundColor = '',
+  event.target.textContent = 'Get Started'; }, 4000);
+});
+function callback(){
+  alert('you clicked the button!');
+  setTimeout(function() {h1.textContent = 'You Are Awesome';}, 4800);
+}
 
 //        MAIN CONTENT 
 const mainContent = siteContent['main-content']; //had to change json name is there a way to do it without doing that?
